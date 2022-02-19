@@ -5,18 +5,26 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import pageObject.CustomerPage;
 import pageObject.LoginPage;
+import utilities.BaseClass;
 
-public class LoginSteps {
+public class LoginSteps extends BaseClass {
 
-   WebDriver driver;
-   public LoginPage lp;
+
+    WebDriver driver ;
+    public LoginPage lp;
+    public CustomerPage cp;
 
 
     @Given("User launch chrome browser")
     public void user_launch_chrome_browser() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\bachh\\eclipse-workspace\\SeleniumCucumber\\Drivers\\chromedriver.exe");
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
+
+
+
 
     }
     @When("User opens GCR shop site")
@@ -83,5 +91,6 @@ public class LoginSteps {
         Assert.assertEquals(title,title1);
 
     }
+
 
 }
