@@ -1,5 +1,6 @@
 package pageObject;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -7,54 +8,35 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
-    public WebDriver ldriver;
-    public LoginPage (WebDriver rdriver)
-    {
-        ldriver = rdriver;
-        PageFactory.initElements(rdriver,this);
+    public WebDriver driver;
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
 
     }
 
-    @FindBy(xpath = "//*[@name='email_address']")
-    @CacheLookup
-    WebElement txtEmail;
 
-    @FindBy(xpath = "//*[@name='password']")
-    @CacheLookup
-    WebElement txtPassword;
-
-    @FindBy(xpath = "//button[@id='tdb1']")
-    @CacheLookup
-    WebElement btnSignIn;
-
-    @FindBy(xpath = "//a[@id='tdb4']")
-    @CacheLookup
-    WebElement btnLogOff;
-
-    @FindBy(xpath = "//a[@id='tdb3']")
-    @CacheLookup
-    WebElement btnAccount;
 
 
     public void setUserName(String user){
-        txtEmail.clear();
-        txtEmail.sendKeys(user);
+        driver.findElement(By.xpath("//*[@name='email_address']")).clear();
+        driver.findElement(By.xpath("//*[@name='email_address']")).sendKeys(user);
     }
     public void setPassword(String password){
-        txtPassword.clear();
-        txtPassword.sendKeys(password);
+        driver.findElement(By.xpath("//*[@name='password']")).clear();
+        driver.findElement(By.xpath("//*[@name='password']")).sendKeys(password);
     }
 
     public void signIn(){
-        btnSignIn.click();
+        driver.findElement(By.xpath("//button[@id='tdb1']")).click();
     }
     public void logOff(){
-        btnLogOff.click();
+        driver.findElement(By.xpath("//a[@id='tdb4']")).click();
     }
 
-    public void myaccount(){
+    public void account(){
 
-        btnAccount.click();
+        this.driver.findElement(By.xpath("//a[@id='tdb3']")).click();
     }
 
 }

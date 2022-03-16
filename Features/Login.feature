@@ -36,4 +36,4 @@ Feature: Login
     Examples:
       |username     |password  |loggedInMessage       |LoggedOffMessage|
       |xyz@gmail.com|Hitesh@123|My Account Information|Log Off|
-      |abc@gmail.com|Hitesh@123|My Account Information|Log Off|
+ #     |abc@gmail.com|Hitesh@123|My Account Information|Log Off|

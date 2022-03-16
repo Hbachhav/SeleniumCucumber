@@ -5,39 +5,38 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pageObject.CustomerPage;
+import pageObject.LoginPage;
 import utilities.BaseClass;
 
-import java.time.Duration;
 
-
-public class CustomerSteps extends BaseClass {
+public class CustomerSteps {
 
     WebDriver driver;
-    public CustomerPage cp;
 
 
+   CustomerPage objCustomer = new CustomerPage(driver);
+
+
+
+    @Given("User launch chrome browsers")
+    public void user_launch_chrome_browsers() {
+
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\bachh\\eclipse-workspace\\SeleniumCucumber\\Drivers\\chromedriver.exe");
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+
+    }
 
     @When("click on continue button for new customer")
-    public void click_on_continue_button_for_new_customer()  {
-
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
-        try {
-
-            wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[@id='tdb2']")));
-
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
+    public void click_on_continue_button_for_new_customer() {
 
 
-        driver.findElement(By.xpath("//a[@id='tdb2']")).click();
-      //  cp = new CustomerPage(driver);
-      //  cp.setBtnContinue();
+
+          //  objLogin = new LoginPage(driver);
+
+         objCustomer.setBtnContinue();
 
     }
 

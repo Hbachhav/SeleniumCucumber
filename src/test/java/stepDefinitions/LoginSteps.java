@@ -2,29 +2,32 @@ package stepDefinitions;
 
 import io.cucumber.java.en.*;
 import org.junit.Assert;
+import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.BeforeTest;
 import pageObject.CustomerPage;
 import pageObject.LoginPage;
 import utilities.BaseClass;
 
-public class LoginSteps extends BaseClass {
+public class LoginSteps  {
+
+    public  WebDriver driver;
+    LoginPage  objLogin = new LoginPage(driver);
+
+    CustomerPage objCus = new CustomerPage(driver);
 
 
-    WebDriver driver ;
-    public LoginPage lp;
-    public CustomerPage cp;
+
 
 
     @Given("User launch chrome browser")
     public void user_launch_chrome_browser() {
+
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\bachh\\eclipse-workspace\\SeleniumCucumber\\Drivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-
-
-
 
     }
     @When("User opens GCR shop site")
@@ -46,24 +49,22 @@ public class LoginSteps extends BaseClass {
     @When("User click on Account button")
     public void user_click_on_account_button() {
 
+        objLogin = new LoginPage(driver);
 
-        lp = new LoginPage(driver);
-
-       lp.myaccount();
-
+        objLogin.account();
     }
 
     @When("User enter Email as {string} and Password as {string}")
     public void user_enter_email_as_and_password_as(String email, String password) {
-        lp = new LoginPage(driver);
-        lp.setUserName(email);
-        lp.setPassword(password);
+        objLogin = new LoginPage(driver);
+        objLogin.setUserName(email);
+        objLogin.setPassword(password);
     }
 
     @When("User click on SignIn button")
     public void user_click_on_sign_in_button() {
-        lp = new LoginPage(driver);
-        lp.signIn();
+        objLogin = new LoginPage(driver);
+        objLogin.signIn();
     }
     @Then("Home page title should be {string}")
     public void Home_page_title_should_be(String title) {
@@ -78,8 +79,8 @@ public class LoginSteps extends BaseClass {
     @When("user click on logOff")
     public void user_click_on_log_off() {
 
-        lp = new LoginPage(driver);
-        lp.logOff();
+        objLogin = new LoginPage(driver);
+        objLogin.logOff();
 
     }
 

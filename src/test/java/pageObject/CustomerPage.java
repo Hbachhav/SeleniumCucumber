@@ -1,26 +1,24 @@
 package pageObject;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class CustomerPage {
-    public WebDriver ldriver;
-    public CustomerPage (WebDriver rdriver)
-    {
-        ldriver = rdriver;
-        PageFactory.initElements(rdriver,this);
+public class CustomerPage  {
 
+    WebDriver driver;
+
+    public CustomerPage(WebDriver driver){
+        this.driver=driver;
     }
-    @FindBy (xpath = "//span[@class='ui-button-text' and text()='Continue']")
-    @CacheLookup
-    WebElement btnContinue;
+
 
     public void setBtnContinue(){
         try {
-            btnContinue.click();
+           driver.findElement(By.xpath("//span[@class='ui-button-text' and text()='Continue']")).click();
         }
         catch (NullPointerException e){
             System.out.println(e +"((((((((((()))))))))))))");

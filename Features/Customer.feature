@@ -2,7 +2,7 @@ Feature: Customer
 
 
 Scenario Outline: Create new customer
-Given User launch chrome browser
+Given User launch chrome browsers
 When User opens GCR shop site
 Then User verify the title of page
 When User click on Account button
