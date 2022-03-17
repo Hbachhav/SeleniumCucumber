@@ -14,132 +14,72 @@ import utilities.BaseClass;
 public class CustomerSteps {
 
     WebDriver driver;
-
-
-   CustomerPage objCustomer = new CustomerPage(driver);
+    LoginPage  objLogin;
 
 
 
-    @Given("User launch chrome browsers")
-    public void user_launch_chrome_browsers() {
-
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\bachh\\eclipse-workspace\\SeleniumCucumber\\Drivers\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-
-    }
 
     @When("click on continue button for new customer")
     public void click_on_continue_button_for_new_customer() {
-
-
-
-          //  objLogin = new LoginPage(driver);
-
-         objCustomer.setBtnContinue();
+        CustomerPage.setBtnContinue();
 
     }
 
     @Then("user should be at create an account section")
     public void user_should_be_at_create_an_account_section() {
-        boolean acc = driver.findElement(By.xpath("//a[ text()='Create an Account']")).isDisplayed();
-        Assert.assertEquals(true, acc);
+        CustomerPage.createAcctSection();
     }
 
     @When("user selects from dropdown {string}")
     public void user_selects_from_dropdown(String India) {
-        Select drpcounty = new Select(driver.findElement(By.xpath("//*[@name='country']")));
-        drpcounty.selectByVisibleText(India);
-
+        CustomerPage.userSelect(India);
     }
 
     @When("User enters {string} and {string}")
     public void user_enters_and(String fname, String lname) {
-
-        driver.findElement(By.xpath("//*[@name='firstname']")).sendKeys(fname);
-        driver.findElement(By.xpath("//*[@name='lastname']")).sendKeys(lname);
-
-
+        CustomerPage.enterFNameLName(fname,lname);
     }
 
     @When("User selects gender as {string}")
     public void user_selects_gender_as(String string) {
-
-
-        driver.findElement(By.xpath("//*[@value='f']")).click();
-
+        CustomerPage.selectGender();
     }
 
     @When("User enters as {string} , {string}, {string}, {string} and {string}")
     public void user_enters_as_and(String street, String suburb, String pincode, String city, String state) {
-
-        driver.findElement(By.xpath("//*[@name='street_address']")).sendKeys(street);
-        driver.findElement(By.xpath("//*[@name='suburb']")).sendKeys(suburb);
-        driver.findElement(By.xpath("//*[@name='postcode']")).sendKeys(pincode);
-        driver.findElement(By.xpath("//*[@name='city']")).sendKeys(city);
-        driver.findElement(By.xpath("//*[@name='state']")).sendKeys(state);
-
-
+        CustomerPage.enterUserAddress(street,suburb,pincode,city,state);
     }
 
     @When("click on continue button")
     public void click_on_continue_button() throws InterruptedException {
-        Thread.sleep(3000);
-        driver.findElement(By.xpath("//*[@id='tdb4']")).click();
-
-
+        CustomerPage.clickOnContiBtn();
     }
 
     @Then("user should get confirmation message as {string}")
     public void user_should_get_confirmation_message_as(String msg1) {
-
-        String msg = driver.findElement(By.xpath("//h1['Your Account Has Been Created!']")).getText();
-
-        Assert.assertEquals(msg, msg1);
+        CustomerPage.confirmationmsg(msg1);
     }
 
 
     @When("User enters Birthdate as {string}")
     public void user_enters_birthdate_as(String date) {
-
-        driver.findElement(By.xpath("//*[@id='dob']")).click();
-
-        Select drpmonth = new Select(driver.findElement(By.xpath("//*[@class='ui-datepicker-month']")));
-        drpmonth.selectByVisibleText("Nov");
-
-        Select drpyear = new Select(driver.findElement(By.xpath("//*[@class='ui-datepicker-year']")));
-        drpyear.selectByVisibleText("1991");
-
-
-        driver.findElement(By.xpath("//*[text()='26']")).click();
-
-
-        //   driver.findElement(By.xpath("//*[@id='dob']")).sendKeys(date);
-
+        CustomerPage.enterDOB(date);
     }
 
     @When("User enters Email as {string}")
     public void user_enters_email_as(String email) {
-
-
-        driver.findElement(By.xpath("//*[@name='email_address']")).sendKeys(email);
-
+        CustomerPage.enterEmail(email);
     }
 
 
     @When("User enter contact as {string} and {string}")
     public void user_enter_contact_as_and(String tel, String fax) {
-
-        driver.findElement(By.xpath("//*[@name='telephone']")).sendKeys(tel);
-        driver.findElement(By.xpath("//*[@name='fax']")).sendKeys(fax);
-
-
+        CustomerPage.enterContactdetails(tel,fax);
     }
 
     @When("User Enter credential as {string} and {string}")
     public void user_enter_credential_as_and(String pass, String confPass) {
-        driver.findElement(By.xpath("//*[@name='password']")).sendKeys(pass);
-        driver.findElement(By.xpath("//*[@name='confirmation']")).sendKeys(confPass);
+        CustomerPage.enterPassword(pass,confPass);
     }
 
 }

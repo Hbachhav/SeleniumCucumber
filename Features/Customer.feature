@@ -2,7 +2,7 @@ Feature: Customer
 
 
 Scenario Outline: Create new customer
-Given User launch chrome browsers
+Given User launch chrome browser
 When User opens GCR shop site
 Then User verify the title of page
 When User click on Account button
@@ -22,4 +22,4 @@ And close browser
 
 Examples:
 |FirstName |LastName  |Gender|DOB        |email   |street  |suburb|pincode|city|state|country|TelNo    |FaxNo|password|confirmpassword|message|
-|Vaish     |bach      |female|30/11/2000 |abc@g.co|abcdefs |wakads|399231 |pune|goa  |India  |982443872|124  |asd@12  |asd@12         |Your Account Has Been Created!|
+|Vaishnavi |bachhav   |female|30/11/2000 |abc@gmail.co|abcdefs |wakads|399231 |pune|goa  |India  |982443872|124  |asd@12  |asd@12         |Your Account Has Been Created!|

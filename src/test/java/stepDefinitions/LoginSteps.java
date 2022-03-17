@@ -13,13 +13,12 @@ import utilities.BaseClass;
 
 public class LoginSteps  {
 
+
     public  WebDriver driver;
-    LoginPage  objLogin = new LoginPage(driver);
 
-    CustomerPage objCus = new CustomerPage(driver);
-
-
-
+    LoginPage  objLogin;
+    CustomerSteps steps;
+    CustomerPage custPage;
 
 
     @Given("User launch chrome browser")
@@ -28,6 +27,7 @@ public class LoginSteps  {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\bachh\\eclipse-workspace\\SeleniumCucumber\\Drivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        custPage = new CustomerPage(driver);
 
     }
     @When("User opens GCR shop site")
