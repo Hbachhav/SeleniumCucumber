@@ -9,6 +9,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import java.util.Random;
+
 public class CustomerPage  {
 
     static WebDriver driver;
@@ -87,7 +89,11 @@ public class CustomerPage  {
 
     public static void enterEmail(String email){
 
-        driver.findElement(By.xpath("//*[@name='email_address']")).sendKeys(email);
+        Random rand = new Random();
+        String random = rand.toString();
+     //   System.out.println(random);
+
+        driver.findElement(By.xpath("//*[@name='email_address']")).sendKeys(email.concat(random).concat(".com"));
     }
 
     public static void enterContactdetails(String tel, String fax) {

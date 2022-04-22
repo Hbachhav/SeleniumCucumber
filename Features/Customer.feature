@@ -22,4 +22,4 @@ And close browser
 
 Examples:
 |FirstName |LastName  |Gender|DOB        |email   |street  |suburb|pincode|city|state|country|TelNo    |FaxNo|password|confirmpassword|message|
-|Vaishnavi |bachhav   |female|30/11/2000 |abc@gmail.co|abcdefs |wakads|399231 |pune|goa  |India  |982443872|124  |asd@12  |asd@12         |Your Account Has Been Created!|
+|Vaishnavi |bachhav   |female|30/11/2000 |abc@gmail|abcdefs |wakads|399231 |pune|goa  |India  |982443872|124  |asd@12  |asd@12         |Your Account Has Been Created!|
