@@ -3,7 +3,7 @@ package Practice;
 public class arraySort {
     public static void main(String[] args) {
 
-       int[] a= {1,3,2,9,5};
+       int[] a= {0,1,1,1,0,0,1};
 
 
        for(int i=0;i<a.length;i++){
@@ -16,7 +16,7 @@ public class arraySort {
                 a[j]=temp;
                }
            }
-           System.out.println("sorted   "+a[i]);
+           System.out.print("sorted   "+a[i]);
        }
 
 
